@@ -1,4 +1,7 @@
 class Round
+  require './lib/game'
+  require './lib/turn'
+  
   attr_accessor :deck, :turns
 
   def initialize(deck)
@@ -11,10 +14,10 @@ class Round
   end
 
   def take_turn(guess)
-    turn = Turn.new("Juneau", current_card)
+    turn = Turn.new(guess, current_card)
     turns << turn
     @deck.cards.shift
-    
+
     turn
   end
 
@@ -40,6 +43,10 @@ class Round
   
   def percent_correct_by_category(category)
     (number_correct_by_category(category).to_f / number_turns_by_category(category)) * 100
+  end
+
+  def start
+    Game.play_game(self)
   end
 
 end
