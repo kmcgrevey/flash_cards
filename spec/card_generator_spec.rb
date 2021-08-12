@@ -13,7 +13,7 @@ describe CardGenerator do
     expect(cards[0].question).to eq('What is the capital of Alaska?')
     expect(cards[1].answer).to eq('Mars')
     expect(cards[2].category).to eq('STEM')
-    expect(cards[3].keys.size).to eq(3)
+    expect(cards[3].class).to eq(Card)
   end
 
 end
